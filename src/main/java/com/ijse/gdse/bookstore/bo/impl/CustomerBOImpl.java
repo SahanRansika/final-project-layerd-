@@ -1,0 +1,66 @@
+package com.ijse.gdse.bookstore.bo.impl;
+
+import com.ijse.gdse.bookstore.bo.CustomerBO;
+import com.ijse.gdse.bookstore.dao.DAOFactory;
+import com.ijse.gdse.bookstore.dao.impl.CustomerDAOImpl;
+import com.ijse.gdse.bookstore.dto.CustomerDTO;
+import com.ijse.gdse.bookstore.entity.Customer;
+import com.ijse.gdse.bookstore.util.CrudUtil;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+public class CustomerBOImpl implements CustomerBO{
+    CustomerDAOImpl customerDAO = (CustomerDAOImpl) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.CUSTOMER);
+
+    @Override
+    public CustomerDTO findById(String selectedCustomerId) throws SQLException{
+        Customer byId = customerDAO.findById(selectedCustomerId);
+        return new CustomerDTO(
+                byId.getColID(),
+                byId.getColName(),
+                byId.getColEmail(),
+                byId.getColPhone()
+        );
+    }
+
+    @Override
+    public ArrayList<CustomerDTO> getAll() throws SQLException,ClassNotFoundException{
+        ArrayList<Customer> customers = customerDAO.getAll();
+        ArrayList<CustomerDTO> customerDTOS = new ArrayList<>();
+        for (Customer customer:customers){
+            customerDTOS.add(new CustomerDTO(customer.getColID(),customer.getColName(),customer.getColEmail(),customer.getColPhone()));
+        }
+        return customerDTOS;
+    }
+
+    @Override
+    public boolean delete(String id) {
+        return customerDAO.delete(id);
+    }
+
+    @Override
+    public String generateNewId() throws SQLException,ClassNotFoundException {
+        return customerDAO.generateNewId();
+    }
+
+    @Override
+    public boolean save(CustomerDTO customerDTO) throws SQLException,ClassNotFoundException{
+        return customerDAO.save(new Customer(
+                customerDTO.getColID(),
+                customerDTO.getColName(),
+                customerDTO.getColEmail(),
+                customerDTO.getColPhone()
+        ));
+    }
+
+    @Override
+    public boolean update(CustomerDTO customerDTO) throws SQLException,ClassNotFoundException{
+        return customerDAO.update(new Customer(
+                customerDTO.getColID(),
+                customerDTO.getColName(),
+                customerDTO.getColEmail(),
+                customerDTO.getColPhone()
+        ));
+    }
+}

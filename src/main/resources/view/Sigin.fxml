@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ancSigin" prefHeight="469.0" prefWidth="343.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.bookstore.controller.SiginController">
+    <children>
+      <TextField fx:id="txtname" layoutX="41.0" layoutY="235.0" opacity="0.77" prefHeight="34.0" prefWidth="252.0" promptText="Username" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 0 0 1px 0; -fx-border-radius: ;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets></TextField>
+      <PasswordField fx:id="txtconfirm" layoutX="41.0" layoutY="345.0" opacity="0.77" prefHeight="34.0" prefWidth="252.0" promptText="Confirm Password" style="-fx-background-color: white; -fx-border-width: 0 0 1px 0; -fx-border-color: black;" />
+      <Button fx:id="btnsigin" contentDisplay="CENTER" layoutX="36.0" layoutY="396.0" mnemonicParsing="false" onAction="#btnSiginButtonOnAction" opacity="0.88" prefHeight="42.0" prefWidth="261.0" style="-fx-background-color: blue; -fx-border-radius: 20;" text="Sigin" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtemail" layoutX="41.0" layoutY="269.0" opacity="0.77" prefHeight="34.0" prefWidth="252.0" promptText="Email" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 0 0 1px 0; -fx-border-radius: ;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TextField>
+      <TextField fx:id="txtpassword" layoutX="41.0" layoutY="310.0" opacity="0.77" prefHeight="34.0" prefWidth="252.0" promptText="Password" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 0 0 1px 0; -fx-border-radius: ;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TextField>
+      <Label layoutX="32.0" layoutY="15.0" prefHeight="42.0" prefWidth="54.0" text="W" textFill="#3e43c1" underline="true">
+         <font>
+            <Font name="Gill Sans Ultra Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="62.0" layoutY="17.0" prefHeight="42.0" prefWidth="110.0" text="elcome" textFill="#3e43c1" underline="true">
+         <font>
+            <Font name="Gill Sans Ultra Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="194.0" layoutY="20.0" prefHeight="34.0" prefWidth="28.0" text="B" textFill="#3e43c1" underline="true">
+         <font>
+            <Font name="Gill Sans Ultra Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="215.0" layoutY="18.0" prefHeight="42.0" prefWidth="110.0" text="ookStore" textFill="#3e43c1" underline="true">
+         <font>
+            <Font name="Gill Sans Ultra Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="152.0" layoutY="15.0" prefHeight="42.0" prefWidth="38.0" text="T" textFill="#3e43c1" underline="true">
+         <font>
+            <Font name="Gill Sans Ultra Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="170.0" layoutY="18.0" prefHeight="42.0" prefWidth="28.0" text="o" textFill="#3e43c1" underline="true">
+         <font>
+            <Font name="Gill Sans Ultra Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="174.0" fitWidth="196.0" layoutX="84.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/bookstore%20(33).png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>

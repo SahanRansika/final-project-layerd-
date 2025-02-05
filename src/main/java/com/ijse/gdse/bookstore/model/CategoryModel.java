@@ -1,0 +1,62 @@
+package com.ijse.gdse.bookstore.model;
+
+import com.ijse.gdse.bookstore.db.DBConnection;
+import com.ijse.gdse.bookstore.dto.CategoryDTO;
+import com.ijse.gdse.bookstore.util.CrudUtil;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+public class CategoryModel {
+
+
+    public String getNextCategoryId() throws SQLException {
+        ResultSet rst = null;
+        rst = CrudUtil.execute("select code from category order by code desc limit 1");
+
+        if (rst.next()) {
+            String lastId = rst.getString(  1);
+            String substring = lastId.substring(3);
+            int i = Integer.parseInt(substring);
+            int newIdIndex = i + 1;
+            return String.format("CAT%03d", newIdIndex);
+        }
+        return "CAT001";
+    }
+
+    public boolean saveCategory(CategoryDTO categoryDTO) throws SQLException {
+        return CrudUtil.execute("insert into category values (?,?,?)",
+                categoryDTO.getColName(),
+                categoryDTO.getColStatus(),
+                categoryDTO.getColCode());
+    }
+
+    public boolean DeleteCategory(String categoryId) throws SQLException {
+        return CrudUtil.execute("delete from category where category_name=?", categoryId);
+    }
+
+    public boolean updateCategory(CategoryDTO categoryDTO) throws SQLException {
+        return CrudUtil.execute("update category set status=?, code=? where category_name=?  ",
+                categoryDTO.getColName(),
+                categoryDTO.getColStatus(),
+                categoryDTO.getColCode()
+        );
+    }
+    public ArrayList<CategoryDTO> getAllCategoryIds() throws SQLException {
+        ResultSet rst = CrudUtil.execute("SELECT * FROM category");
+        ArrayList<CategoryDTO> categoryDTOS = new ArrayList<>();
+
+        while (rst.next()) {
+            CategoryDTO categoryDTO = new CategoryDTO(
+                    rst.getString(1),
+                    rst.getString(2),
+                    rst.getString(3)
+            );
+            categoryDTOS.add(categoryDTO);
+        }
+        return categoryDTOS;
+    }
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1460.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.bookstore.controller.DashBoardController">
+   <children>
+      <ImageView fitHeight="238.0" fitWidth="434.0" layoutX="552.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/bookstore (29).jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="360.0" layoutY="68.0" prefHeight="30.0" prefWidth="739.0" text="Welcome To BookStore Management System" textFill="#0c86d1" underline="true">
+         <font>
+            <Font name="Gill Sans Ultra Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
