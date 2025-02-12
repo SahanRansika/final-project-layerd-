@@ -17,7 +17,7 @@
             <Insets />
          </opaqueInsets></TextField>
       <PasswordField fx:id="txtconfirm" layoutX="41.0" layoutY="345.0" opacity="0.77" prefHeight="34.0" prefWidth="252.0" promptText="Confirm Password" style="-fx-background-color: white; -fx-border-width: 0 0 1px 0; -fx-border-color: black;" />
-      <Button fx:id="btnsigin" contentDisplay="CENTER" layoutX="36.0" layoutY="396.0" mnemonicParsing="false" onAction="#btnSiginButtonOnAction" opacity="0.88" prefHeight="42.0" prefWidth="261.0" style="-fx-background-color: blue; -fx-border-radius: 20;" text="Sigin" textFill="WHITE">
+      <Button fx:id="btnsigin" contentDisplay="CENTER" layoutX="36.0" layoutY="396.0" mnemonicParsing="false" onAction="#btnSiginButtonOnAction" opacity="0.88" prefHeight="42.0" prefWidth="261.0" style="-fx-background-color: #239e8e; -fx-border-radius: 20;" text="Sigin" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
@@ -32,32 +32,32 @@
             <Insets />
          </opaqueInsets>
       </TextField>
-      <Label layoutX="32.0" layoutY="15.0" prefHeight="42.0" prefWidth="54.0" text="W" textFill="#3e43c1" underline="true">
+      <Label layoutX="32.0" layoutY="15.0" prefHeight="42.0" prefWidth="54.0" text="W" textFill="#239e8e" underline="true">
          <font>
             <Font name="Gill Sans Ultra Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="62.0" layoutY="17.0" prefHeight="42.0" prefWidth="110.0" text="elcome" textFill="#3e43c1" underline="true">
+      <Label layoutX="62.0" layoutY="17.0" prefHeight="42.0" prefWidth="110.0" text="elcome" textFill="#239e8e" underline="true">
          <font>
             <Font name="Gill Sans Ultra Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="194.0" layoutY="20.0" prefHeight="34.0" prefWidth="28.0" text="B" textFill="#3e43c1" underline="true">
+      <Label layoutX="194.0" layoutY="20.0" prefHeight="34.0" prefWidth="28.0" text="B" textFill="#239e8e" underline="true">
          <font>
             <Font name="Gill Sans Ultra Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="215.0" layoutY="18.0" prefHeight="42.0" prefWidth="110.0" text="ookStore" textFill="#3e43c1" underline="true">
+      <Label layoutX="215.0" layoutY="18.0" prefHeight="42.0" prefWidth="110.0" text="ookStore" textFill="#239e8e" underline="true">
          <font>
             <Font name="Gill Sans Ultra Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="152.0" layoutY="15.0" prefHeight="42.0" prefWidth="38.0" text="T" textFill="#3e43c1" underline="true">
+      <Label layoutX="152.0" layoutY="15.0" prefHeight="42.0" prefWidth="38.0" text="T" textFill="#239e8e" underline="true">
          <font>
             <Font name="Gill Sans Ultra Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="170.0" layoutY="18.0" prefHeight="42.0" prefWidth="28.0" text="o" textFill="#3e43c1" underline="true">
+      <Label layoutX="170.0" layoutY="18.0" prefHeight="42.0" prefWidth="28.0" text="o" textFill="#239e8e" underline="true">
          <font>
             <Font name="Gill Sans Ultra Bold" size="18.0" />
          </font>

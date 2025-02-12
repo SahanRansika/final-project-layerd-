@@ -21,7 +21,13 @@ public class OrderDetailsDAOImpl implements OrderDetailsDAO {
 
     @Override
     public boolean save(OrderDetails entity) throws SQLException, ClassNotFoundException {
-        return false;
+        return CrudUtil.execute(
+                "insert into order_details values (?,?,?,?)",
+                entity.getOrderId(),
+                entity.getBookId(),
+                entity.getQuantity(),
+                entity.getPrice()
+        );
     }
 
     @Override
@@ -32,12 +38,5 @@ public class OrderDetailsDAOImpl implements OrderDetailsDAO {
     @Override
     public boolean delete(String id) throws SQLException, ClassNotFoundException {
         return false;
-    }
-    public boolean reduceQty(OrderDetailsDTO orderDetailsDTO){
-        return CrudUtil.execute(
-                "update book set qty = qty - ? where book_id = ?",
-                orderDetailsDTO.getQuantity(),
-                orderDetailsDTO.getBookId()
-        );
     }
 }

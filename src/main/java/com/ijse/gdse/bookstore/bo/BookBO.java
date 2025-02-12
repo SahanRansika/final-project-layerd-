@@ -10,8 +10,6 @@ public interface BookBO extends SuperBO{
     boolean delete(String id) throws SQLException,ClassNotFoundException;
     boolean update(BookDTO bookDTO) throws SQLException,ClassNotFoundException;
     String getNextBookId() throws SQLException,ClassNotFoundException;
-    ArrayList<String> getAllBookIds() throws SQLException,ClassNotFoundException;
-    BookDTO findById(String id) throws SQLException,ClassNotFoundException;
+    BookDTO findById(String selectedBookId) throws SQLException,ClassNotFoundException;
     ArrayList<BookDTO> getAll() throws SQLException,ClassNotFoundException;
-
 }

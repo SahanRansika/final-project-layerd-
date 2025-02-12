@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class CustomerDAOImpl implements CustomerDAO {
     @Override
-    public ArrayList<Customer> getAll() throws SQLException, ClassNotFoundException {
+    public ArrayList<Customer> getAll() throws SQLException {
         ResultSet rst = CrudUtil.execute("SELECT * FROM customer");
         ArrayList<Customer> customerArrayList = new ArrayList<>();
 
@@ -27,7 +27,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public String generateNewId() throws SQLException, ClassNotFoundException {
+    public String generateNewId() throws SQLException {
         ResultSet rst = CrudUtil.execute("select customer_id from customer order by customer_id desc limit 1");
 
         if (rst.next()) {
@@ -41,17 +41,17 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public boolean delete(String id){
+    public boolean delete(String id) throws SQLException{
         return CrudUtil.execute("delete from customer where customer_id=?", id);
     }
 
     @Override
-    public boolean update(Customer entity) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("update customer set customer_name=?, email=?, phone=? where customer_id=?",
-                entity.getColID(),
+    public boolean update(Customer entity) throws SQLException{
+        return CrudUtil.execute("UPDATE CUSTOMER SET customer_name=?, email=?, phone=? WHERE customer_id=?",
                 entity.getColName(),
                 entity.getColEmail(),
-                entity.getColPhone()
+                entity.getColPhone(),
+                entity.getColID()
         );
     }
 

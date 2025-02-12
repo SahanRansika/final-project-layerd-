@@ -13,29 +13,29 @@ public class EmployeeBOImpl implements EmployeeBO {
     EmployeeDAOImpl employeeDAO = (EmployeeDAOImpl)DAOFactory.getInstance().getDAO(DAOFactory.DAOType.EMPLOYEE);
 
     @Override
-    public boolean save(EmployeeDTO employeeDTO){
+    public boolean save(EmployeeDTO employeeDTO) throws SQLException{
         return employeeDAO.save(new Employee(
                 employeeDTO.getColID(),
                 employeeDTO.getColName(),
-                employeeDTO.getColPosition(),
                 employeeDTO.getColPhone(),
+                employeeDTO.getColPosition(),
                 employeeDTO.getColSalary()
         ));
     }
 
     @Override
-    public boolean delete(String text) {
-        return false;
+    public boolean delete(String text) throws SQLException {
+        return employeeDAO.delete(text);
     }
 
     @Override
-    public boolean update(EmployeeDTO employeeDTO) {
-        return false;
+    public boolean update(EmployeeDTO employeeDTO) throws SQLException{
+        return employeeDAO.update(new Employee(employeeDTO.getColID(),employeeDTO.getColName(),employeeDTO.getColPhone(),employeeDTO.getColPosition(),employeeDTO.getColSalary()));
     }
 
     @Override
-    public String generateNewId() throws SQLException {
-        return null;
+    public String generateNewId() throws SQLException{
+        return employeeDAO.generateNewId();
     }
 
     @Override
@@ -46,8 +46,8 @@ public class EmployeeBOImpl implements EmployeeBO {
             employeeDTOS.add(new EmployeeDTO(
                     employee.getColID(),
                     employee.getColName(),
-                    employee.getColPosition(),
                     employee.getColPhone(),
+                    employee.getColPosition(),
                     employee.getColSalary()
             ));
         }

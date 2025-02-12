@@ -5,7 +5,6 @@ import com.ijse.gdse.bookstore.bo.impl.CustomerBOImpl;
 import com.ijse.gdse.bookstore.db.DBConnection;
 import com.ijse.gdse.bookstore.dto.CustomerDTO;
 import com.ijse.gdse.bookstore.dto.tm.CustomerTM;
-import com.ijse.gdse.bookstore.model.CustomerModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -96,7 +95,7 @@ public class CustomerController implements Initializable {
         }
     }
 
-    private void refreshPage() throws SQLException,ClassNotFoundException {
+    private void refreshPage()  throws SQLException{
         loadNextCustomerId();
         loadTableData();
 
@@ -109,14 +108,14 @@ public class CustomerController implements Initializable {
         txtPhone.clear();
     }
 
-    public void loadNextCustomerId() throws SQLException,ClassNotFoundException {
+    public void loadNextCustomerId() throws SQLException {
 //        customerModel.helloCustomerModel();
         String nextCustomerId = customerBO.generateNewId();
         lblCustomer.setText(nextCustomerId);
     }
 
 
-    private void loadTableData() throws SQLException,ClassNotFoundException {
+    private void loadTableData() throws SQLException {
             ArrayList<CustomerDTO> customerDTOS = customerBO.getAll();
             ObservableList<CustomerTM> customerTMS = FXCollections.observableArrayList();
 
@@ -149,7 +148,7 @@ public class CustomerController implements Initializable {
     }
 
     @FXML
-    public void orderReportOnAction(ActionEvent actionEvent) throws SQLException,ClassNotFoundException{
+    public void orderReportOnAction(ActionEvent actionEvent) {
         CustomerTM customerTM = tblCustomer.getSelectionModel().getSelectedItem();
 
         if (customerTM == null) {
@@ -218,12 +217,7 @@ public class CustomerController implements Initializable {
 
 
         if (isValidName && isValidEmail && isValidPhone) {
-            CustomerDTO customerDTO = new CustomerDTO(
-                    customerId,
-                    name,
-                    email,
-                    phone
-            );
+            CustomerDTO customerDTO = new CustomerDTO(customerId,name,email,phone);
 
             boolean isSaved = customerBO.save(customerDTO);
             if (isSaved) {
@@ -236,7 +230,7 @@ public class CustomerController implements Initializable {
     }
 
     @FXML
-    void btnDeleteOnAction(ActionEvent event) throws SQLException,ClassNotFoundException {
+    void btnDeleteOnAction(ActionEvent event) throws SQLException {
         String id = lblCustomer.getText();
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure?", ButtonType.YES, ButtonType.NO);
@@ -255,29 +249,19 @@ public class CustomerController implements Initializable {
     }
 
     @FXML
-    void btnUpdateOnAction(ActionEvent event) throws SQLException,ClassNotFoundException {
-        CustomerDTO customerDTO = new CustomerDTO(
-        lblCustomer.getText(),
-        txtName.getText(),
-        txtEmail.getText(),
-        txtPhone.getText()
-        );
+    void btnUpdateOnAction(ActionEvent event) throws SQLException {
+        CustomerDTO customerDTO = new CustomerDTO(lblCustomer.getText(),txtName.getText(),txtEmail.getText(),txtPhone.getText());
 
-        try {
-                boolean isUpdate = customerBO.update(customerDTO);
-                if (isUpdate) {
-                    new Alert(Alert.AlertType.CONFIRMATION, "Customer Update.").show();
-                    refreshPage();
-                } else {
-                    new Alert(Alert.AlertType.ERROR, "Customer is not update. Something went wrong.").show();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-                new Alert(Alert.AlertType.ERROR, "Error updating customer data.").show();
+        boolean isUpdate = customerBO.update(customerDTO);
+        if (isUpdate) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Customer Update.").show();
+            refreshPage();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Customer is not update. Something went wrong.").show();
         }
     }
     @FXML
-    void btnResetOnAction(ActionEvent event) throws SQLException,ClassNotFoundException{
+    void btnResetOnAction(ActionEvent event) throws SQLException{
         refreshPage();
     }
 

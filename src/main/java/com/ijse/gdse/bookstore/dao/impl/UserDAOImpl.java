@@ -60,11 +60,11 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public boolean update(User entity) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("update user set username=?, email=?, position=? ,password=? where user_id=? ",
-                entity.getColID(),
                 entity.getColName(),
                 entity.getColEmail(),
                 entity.getColPassword(),
-                entity.getColPosition()
+                entity.getColPosition(),
+                entity.getColID()
         );
     }
 }

@@ -11,32 +11,32 @@
 
 <AnchorPane fx:id="ancLogin" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ijse.gdse.bookstore.controller.LoginController">
    <children>
-      <Label fx:id="lblW" layoutX="19.0" layoutY="30.0" text="W" textFill="#3e43c1">
+      <Label fx:id="lblW" layoutX="19.0" layoutY="30.0" text="W" textFill="#239e8e">
          <font>
             <Font name="Gill Sans Ultra Bold" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="lblelcome" layoutX="59.0" layoutY="42.0" text="elcome" textFill="#3e43c1">
+      <Label fx:id="lblelcome" layoutX="59.0" layoutY="42.0" text="elcome" textFill="#239e8e">
          <font>
             <Font name="Gill Sans Ultra Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="lblT" layoutX="175.0" layoutY="30.0" text="T" textFill="#3e43c1">
+      <Label fx:id="lblT" layoutX="175.0" layoutY="30.0" text="T" textFill="#239e8e">
          <font>
             <Font name="Gill Sans Ultra Bold" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="lblo" layoutX="201.0" layoutY="42.0" text="o" textFill="#3e43c1">
+      <Label fx:id="lblo" layoutX="201.0" layoutY="42.0" text="o" textFill="#239e8e">
          <font>
             <Font name="Gill Sans Ultra Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="lblB" layoutX="233.0" layoutY="30.0" text="B" textFill="#3e43c1">
+      <Label fx:id="lblB" layoutX="233.0" layoutY="30.0" text="B" textFill="#239e8e">
          <font>
             <Font name="Gill Sans Ultra Bold" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="lblookStore" layoutX="267.0" layoutY="42.0" text="ookStore" textFill="#3e43c1">
+      <Label fx:id="lblookStore" layoutX="267.0" layoutY="42.0" text="ookStore" textFill="#239e8e">
          <font>
             <Font name="Gill Sans Ultra Bold" size="24.0" />
          </font>
@@ -48,13 +48,13 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnLogin" layoutX="38.0" layoutY="214.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="46.0" prefWidth="212.0" style="-fx-background-color: blue; -fx-background-radius: 20;" text="Login" textFill="WHITE">
+      <Button fx:id="btnLogin" layoutX="38.0" layoutY="214.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="46.0" prefWidth="212.0" style="-fx-background-color: #239e8e; -fx-background-radius: 20;" text="Login" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font></Button>
-      <ImageView fitHeight="302.0" fitWidth="306.0" layoutX="277.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="294.0" fitWidth="306.0" layoutX="277.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/1732598760379.png" />
+            <Image url="@../../../../../../GDSE71/BookStore/src/main/resources/images/bookstore%20(2).png" />
          </image>
       </ImageView>
    </children>

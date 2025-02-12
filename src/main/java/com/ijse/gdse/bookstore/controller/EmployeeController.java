@@ -2,12 +2,8 @@ package com.ijse.gdse.bookstore.controller;
 
 import com.ijse.gdse.bookstore.bo.BOFactory;
 import com.ijse.gdse.bookstore.bo.impl.EmployeeBOImpl;
-import com.ijse.gdse.bookstore.dao.DAOFactory;
-import com.ijse.gdse.bookstore.dto.CustomerDTO;
 import com.ijse.gdse.bookstore.dto.EmployeeDTO;
-import com.ijse.gdse.bookstore.dto.tm.CustomerTM;
 import com.ijse.gdse.bookstore.dto.tm.EmployeeTM;
-import com.ijse.gdse.bookstore.model.EmployeeModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

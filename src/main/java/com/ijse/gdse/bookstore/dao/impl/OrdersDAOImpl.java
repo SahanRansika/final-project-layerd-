@@ -28,7 +28,7 @@ public class OrdersDAOImpl implements OrdersDAO {
     public boolean save(Orders entity) throws SQLException, ClassNotFoundException {
         return CrudUtil.execute("insert into orders values (?,?,?)",
                 entity.getOrderId(),
-                entity.getOrderDate(),
+                entity.getCustomerId(),
                 entity.getOrderDate()
         );
     }

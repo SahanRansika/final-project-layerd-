@@ -1,5 +1,7 @@
 package com.ijse.gdse.bookstore.model;
 
+import com.ijse.gdse.bookstore.bo.impl.BookBOImpl;
+import com.ijse.gdse.bookstore.dao.impl.BookDAOImpl;
 import com.ijse.gdse.bookstore.dto.OrderDetailsDTO;
 import com.ijse.gdse.bookstore.util.CrudUtil;
 
@@ -7,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class OrderDetailsModel {
-    private final BookModel bookModel = new BookModel();
+    private final BookDAOImpl bookDAO = new BookDAOImpl();
 
     public boolean saveOrderDetailsList(ArrayList<OrderDetailsDTO> orderDetailsDTOS) throws SQLException {
 
@@ -17,10 +19,10 @@ public class OrderDetailsModel {
                 return false;
             }
 
-            boolean isBookUpdated = bookModel.reduceQty(orderDetailsDTO);
-            if (!isBookUpdated) {
-                return false;
-            }
+//            boolean isBookUpdated = bookDAO.reduceQty(orderDetailsDTO);
+//            if (!isBookUpdated) {
+//                return false;
+//            }
         }
         return true;
     }

@@ -1,7 +1,10 @@
 package com.ijse.gdse.bookstore.dao.impl;
 
 import com.ijse.gdse.bookstore.dao.CrudDAO;
+import com.ijse.gdse.bookstore.dto.BookDTO;
+import com.ijse.gdse.bookstore.dto.OrderDetailsDTO;
 import com.ijse.gdse.bookstore.entity.Book;
+import com.ijse.gdse.bookstore.entity.OrderDetails;
 import com.ijse.gdse.bookstore.util.CrudUtil;
 
 import java.sql.ResultSet;
@@ -31,7 +34,7 @@ public class BookDAOImpl implements CrudDAO<Book> {
         return bookArrayList;
     }
 @Override
-    public boolean save(Book entity) throws SQLException,ClassNotFoundException{
+    public boolean save(Book entity) throws SQLException{
     return CrudUtil.execute("INSERT INTO book VALUES (?,?,?,?,?,?,?,?,?)",
             entity.getColID(),
             entity.getColISBN(),
@@ -45,9 +48,8 @@ public class BookDAOImpl implements CrudDAO<Book> {
     );
 }
 @Override
-    public boolean update(Book entity) throws SQLException,ClassNotFoundException{
+    public boolean update(Book entity) throws SQLException{
     return CrudUtil.execute("update book set isbn=?, title=?, writer=?, category_name=?, publisher=?, year=?, qty=?, price=? where book_id=?",
-            entity.getColID(),
             entity.getColISBN(),
             entity.getColTitle(),
             entity.getColWriter(),
@@ -55,7 +57,8 @@ public class BookDAOImpl implements CrudDAO<Book> {
             entity.getColPublisher(),
             entity.getColYear(),
             entity.getColQty(),
-            entity.getColPrice()
+            entity.getColPrice(),
+            entity.getColID()
     );
 }
 
@@ -65,21 +68,22 @@ public class BookDAOImpl implements CrudDAO<Book> {
     }
     @Override
     public String generateNewId() throws SQLException,ClassNotFoundException{
-        ResultSet resultSet = CrudUtil.execute("select book_id from book order by book_id desc limit 1");
-        if (resultSet.next()) {
-            String lastId = resultSet.getString(1);
-            String substring = lastId.substring(3);
-            int i = Integer.parseInt(substring);
-            int newIdIndex = i+1;
-            return String.format("EMP%03d",newIdIndex);
-        }
-        return null;
-    }
-    public Book findById(String selectedBookId) throws SQLException{
-        ResultSet rst = CrudUtil.execute("select * from book where book_id=?", selectedBookId);
+        ResultSet rst = null;
+        rst = CrudUtil.execute("select book_id from book order by book_id desc limit 1");
 
         if (rst.next()) {
-            Book book = new Book(
+            String lastId = rst.getString(1); // Last book ID
+            String substring = lastId.substring(1); // Extract the numeric part
+            int i = Integer.parseInt(substring); // Convert the numeric part to integer
+            int newIdIndex = i + 1; // Increment the number by 1
+            return String.format("B%03d", newIdIndex); // Return the new book ID in format Cnnn
+        }
+        return "B001";
+    }
+    public BookDTO findById(String selectedBookId) throws SQLException{
+        ResultSet rst = CrudUtil.execute("select * from book where book_id=?", selectedBookId);
+        if (rst.next()) {
+            return new BookDTO(
                     rst.getString(1),
                     rst.getString(2),
                     rst.getString(3),
@@ -90,7 +94,6 @@ public class BookDAOImpl implements CrudDAO<Book> {
                     rst.getInt(8),
                     rst.getDouble(9)
             );
-            return book;
         }
         return null;
     }
@@ -104,5 +107,13 @@ public class BookDAOImpl implements CrudDAO<Book> {
         }
 
         return bookIds;
+    }
+    public boolean reduceQty(OrderDetails entity) throws SQLException {
+        // Execute SQL query to update the book quantity in the database
+        return CrudUtil.execute(
+                "update book set qty = qty - ? where book_id = ?",
+                entity.getQuantity(),   // Quantity to reduce
+                entity.getBookId()      // Book ID
+        );
     }
 }

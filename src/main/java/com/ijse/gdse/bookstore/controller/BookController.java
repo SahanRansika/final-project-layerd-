@@ -2,10 +2,8 @@ package com.ijse.gdse.bookstore.controller;
 
 import com.ijse.gdse.bookstore.bo.BOFactory;
 import com.ijse.gdse.bookstore.bo.impl.BookBOImpl;
-import com.ijse.gdse.bookstore.dao.DAOFactory;
 import com.ijse.gdse.bookstore.dto.BookDTO;
 import com.ijse.gdse.bookstore.dto.tm.BookTM;
-import com.ijse.gdse.bookstore.model.BookModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -122,7 +120,7 @@ public class BookController implements Initializable {
         loadTableData();
 
         btnSave.setDisable(false);
-        btnUpdate.setDisable(true);
+        btnUpdate.setDisable(false);
         btnDelete.setDisable(true);
 
 
@@ -274,8 +272,7 @@ public class BookController implements Initializable {
             }
         }
         }
-
-
+        
 
     @FXML
     void btnResetOnAction(ActionEvent event) throws SQLException,ClassNotFoundException {

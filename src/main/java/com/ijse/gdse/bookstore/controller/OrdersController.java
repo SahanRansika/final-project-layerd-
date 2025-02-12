@@ -50,7 +50,7 @@ public class OrdersController implements Initializable {
     private ComboBox<String> cmbCustomerId;
 
     @FXML
-    private TableColumn<?, ?> colAction;
+    private TableColumn<CartTM, String> colAction;
 
     @FXML
     private TableColumn<CartTM, String> colBookId;
@@ -268,7 +268,6 @@ public class OrdersController implements Initializable {
         if (isSaved) {
             new Alert(Alert.AlertType.INFORMATION, "Order saved..!").show();
 
-
             refreshPage();
         } else {
             new Alert(Alert.AlertType.ERROR, "Order fail..!").show();
@@ -286,28 +285,34 @@ public class OrdersController implements Initializable {
         System.out.println("Selected Customer id" + selectedCustomerId);
         CustomerDTO customerDTO = customerBO.findById(selectedCustomerId);
 
-        // If customer found (customerDTO not null)
+
         if (customerDTO != null) {
 
-            // FIll customer related labels
             lblCustomerName.setText(customerDTO.getColName());
             System.out.println(customerDTO.getColName());
-        }else {
-            System.out.println("Customer Not Found");
         }
+//        else {
+//            System.out.println("Customer Not Found");
+//        }
     }
 
 
     @FXML
     void cmbBookOnAction(ActionEvent event) throws SQLException{
+
         String selectedBookId = cmbBookId.getSelectionModel().getSelectedItem();
+        System.out.println("Selected Book id" + selectedBookId);
         BookDTO bookDTO = bookBO.findById(selectedBookId);
+
 
         if (bookDTO != null) {
             lblBookName.setText(bookDTO.getColTitle());
             lblBookQty.setText(String.valueOf(bookDTO.getColQty()));
             lblBookPrice.setText(String.valueOf(bookDTO.getColPrice()));
         }
+//        else {
+//            System.out.println("Book Not Found");
+//        }
     }
 
     public void btnPaymentOnAction(ActionEvent event) throws SQLException {

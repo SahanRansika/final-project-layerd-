@@ -21,12 +21,12 @@
       </Label>
       <TableView fx:id="tblCart" layoutX="34.0" layoutY="302.0" prefHeight="363.0" prefWidth="1358.0">
         <columns>
-          <TableColumn fx:id="colBookId" prefWidth="142.39995956420898" text="Book Id" />
-          <TableColumn fx:id="colName" prefWidth="117.59999084472656" text="Name" />
-            <TableColumn fx:id="colQuantity" prefWidth="180.0" text="Cart Quantity" />
-            <TableColumn fx:id="colPrice" prefWidth="142.4000244140625" text="Unit Price" />
-            <TableColumn fx:id="colTotal" prefWidth="195.19998168945312" text="Total" />
-            <TableColumn fx:id="colAction" prefWidth="157.60003662109375" text="Action" />
+          <TableColumn fx:id="colBookId" prefWidth="160.79998397827148" text="Book Id" />
+          <TableColumn fx:id="colName" prefWidth="260.0000305175781" text="Name" />
+            <TableColumn fx:id="colQuantity" prefWidth="272.79998779296875" text="Cart Quantity" />
+            <TableColumn fx:id="colPrice" prefWidth="226.4000244140625" text="Unit Price" />
+            <TableColumn fx:id="colTotal" prefWidth="279.19989013671875" text="Total" />
+            <TableColumn fx:id="colAction" prefWidth="164.800048828125" text="Action" />
         </columns>
       </TableView>
       <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="690.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">

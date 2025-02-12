@@ -19,7 +19,7 @@ public class CategoryBOImpl implements CategoryBO {
     }
     @Override
     public boolean update(CategoryDTO categoryDTO) throws SQLException,ClassNotFoundException{
-        return categoryDAO.update(new Category(categoryDTO.getColName(),categoryDTO.getColStatus(),categoryDTO.getColCode()));
+        return categoryDAO.update(new Category(categoryDTO.getColStatus(),categoryDTO.getColCode(),categoryDTO.getColName()));
     }
     @Override
     public boolean delete(String id) throws SQLException,ClassNotFoundException{

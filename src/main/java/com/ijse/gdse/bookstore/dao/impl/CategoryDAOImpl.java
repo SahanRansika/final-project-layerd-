@@ -29,9 +29,9 @@ public class CategoryDAOImpl implements CategoryDAO{
     }
     public boolean update(Category entity) throws SQLException,ClassNotFoundException{
         return CrudUtil.execute("update category set status=?, code=? where category_name=? ",
-            entity.getColName(),
-            entity.getColStatus(),
-            entity.getColCode()
+                entity.getColStatus(),
+                entity.getColCode(),
+                entity.getColName()
         );
     }
     public boolean delete(String id)throws SQLException,ClassNotFoundException{
